@@ -1,0 +1,7 @@
+@mixin liner-gradiant($direction,$startColor,$percentage1,$stopColor,$precentage2){
+   background: linear-gradient($direction,$startColor $percentage1,$stopColor $precentage2);
+   background: -webkit-linear-gradient($direction,$startColor $percentage1,$stopColor $precentage2);
+   background: -moz-linear-gradient($direction,$startColor $percentage1,$stopColor $precentage2);
+   background: -ms-linear-gradient($direction,$startColor $percentage1,$stopColor $precentage2);
+   background: -o-linear-gradient($direction,$startColor $percentage1,$stopColor $precentage2);
+  }

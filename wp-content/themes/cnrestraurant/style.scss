@@ -1,0 +1,107 @@
+/*
+Theme Name: chinese restraurant
+Theme URI: http://www.olmarket.co.uk
+Description: chinese restraurant WordPress theme
+Version: 1
+Author: Enhui Zhu
+Author URI: http://www.olmarket.co.uk
+*/
+$bgColor:#000;
+$fgColor:#fff;
+$borderColor:#580000; 
+$navListBg:#990000;
+$descriptionColor:rgb(97, 83, 83);
+$bigFont:23px;
+$regularFontSize:14px;
+$siteWidth:1022px;
+$headTitleTop:29px;
+$arrowPaddingToParent:5px;
+$carouselHeight:396px;
+$navWidth:958px;
+$navHeight:44px;
+$menuBorderWidth:7px;
+$slideImgWidth:459px;
+$carouselBg: "patern.png";
+
+
+
+@import "mixin.scss";
+
+body{
+ color:$fgColor;
+ margin:0px;
+ padding:0px;
+ font-family:Helvetica, Arial, sans-serif;
+ font-size: $regularFontSize;
+}
+a{text-decoration:none; color:$fgColor;}
+.clear{clear:both;}
+.siteBigDiv{width:$siteWidth; margin-left:auto; margin-right:auto;}
+
+/*
+* css for the head part
+*/
+.head{width:100%; height:100px; background-color:$bgColor; position:relative;}
+.siteTitle{font-size:$bigFont; position:absolute; left:calc(50% - 450px); top:$headTitleTop;}
+.restraurantAward{left:calc(50% + 206px); top:$headTitleTop; position:absolute; font-style:italic;}
+
+/**
+* css for carousel and navigation list
+**/
+.carouselParent{width:100%; height:$carouselHeight; background-image:url("images/" + $carouselBg); background-color:rgba(0,0,0,0.8); position:relative;}
+.carouselParent > div {@extend .siteBigDiv;}
+.carouselContainer{position:relative;height:100%;}
+.carouselContainer:hover .arrow{display:block;}
+.carouselContainer img{width:100%; height:100%; position:absolute;}
+.carouselContainer .arrow{position:absolute; top:calc(50% - 20px); width: 40px; height:40px; background-position:center center; display:none;}
+.arrow.left{background-image:url("images/nav_left.png"); left:$arrowPaddingToParent;}
+.arrow.right{background-image:url("images/nav_right.png"); right:$arrowPaddingToParent;}
+.navigation{position:absolute; top:-14px; left:calc(50% - 492px);}
+.navTitleCommon{background-color:$navListBg; box-shadow: 0px 2px 1px rgba(0,0,0,0.8);}
+.navList{@extend .navTitleCommon; width:$navWidth; height:$navHeight;}
+.navigation > div{float:left;}
+.star{width:13px; height:13px; background-image:url("images/star.png"); background-position:center center; float: left; margin:3px;}
+.star-parent{padding:10px 32px; float:left;}
+.star-parent.pull-right{float:right;}
+.navList > a {display:inline-block; padding:17px 16px; position:relative; top:-2px; float:left;}
+.navList > a.active,.navList > a:hover{background-color:$fgColor; color:$navListBg; font-weight:bold;}
+.menuCommon{border-style:solid; border-width:$menuBorderWidth;}
+.menuLeft{@extend .menuCommon; border-color:transparent $borderColor $borderColor transparent;}
+.menuRight{@extend .menuCommon; border-color:transparent transparent $borderColor $borderColor;}
+
+/**
+* css for container
+**/
+.container{width:100%; background-image:url("images/container_bg.png"); background-repeat:repeat-x; background-color:$fgColor; min-height:200px;}
+.container > div{@extend .siteBigDiv;}
+.content-top{text-align:center; padding:23px 0;}
+.seperate-img{width:157px; height:20px; background-image:url("images/ornament.png"); background-repeat:no-repeat; background-position:center center; display:inline-block;}
+
+.slide-panel-container,.slide-img{border:solid 1px rgb(207, 196, 196); box-shadow:0px 0px 1px white inset; min-height:100px; background:#edeae6 url('images/content_bg.png') repeat-x;}
+.slide-panel-container .slide{width:50%; float:left; text-shadow:#f8f8f8 0px 1px 0px; text-align:center; padding-bottom:40px;}
+.slide >div{display:inline-block;}
+.listTopWrapperParent{text-align:center;}
+.listTopWrapper{display:inline-block; position: relative;
+top: -14px;}
+.slideTitleWrapper{@extend .navTitleCommon; padding:10px 91px;}
+.listTopWrapper > div {float:left;}
+.slide-img{width:$slideImgWidth; height:200px; padding:3px;}
+.slide-img img{width:100%; height:100%;}
+.slide-description{color:$descriptionColor; width: $slideImgWidth + 3px;
+text-align: justify;
+margin-top: 20px;
+line-height: 1.5;}
+.read-more{padding:8px 15px; border:solid 1px black; box-shadow:0px 0px 2px yellow inset; text-shadow:#2c0000 0px -1px 0px; background-color:$navListBg; color:$fgColor; display:inline-block; margin-top:20px;}
+
+.copyright{@extend .siteBigDiv; color:$descriptionColor; margin-top:20px; padding-bottom:20px;}
+.copyright a{color:$descriptionColor;}
+
+
+
+
+
+
+
+
+
+
