@@ -1,5 +1,9 @@
-<?php get_header(); ?>
-
+<?php
+/*
+Template Name: Home Page
+*/
+?>
+<?php get_header(); ?>	
 	<div class="container">
 	     <div class="content-top">
 		     <div class="seperate-img"></div>
@@ -60,8 +64,4 @@
 			<div class="clear"></div>
 		 </div>
 	 </div>
-     
- <?php get_footer();?>
-
-
-
+	  <?php get_footer();?>

@@ -13,6 +13,7 @@ $navListBg:#990000;
 $descriptionColor:rgb(97, 83, 83);
 $bigFont:23px;
 $regularFontSize:14px;
+$smallerFontSize:12px;
 $siteWidth:1022px;
 $headTitleTop:29px;
 $arrowPaddingToParent:5px;
@@ -37,6 +38,9 @@ body{
 a{text-decoration:none; color:$fgColor;}
 .clear{clear:both;}
 .siteBigDiv{width:$siteWidth; margin-left:auto; margin-right:auto;}
+.pull-left{float:left;}
+.pull-right{float:right;}
+ul{padding-left:0px;}
 
 /*
 * css for the head part
@@ -63,11 +67,13 @@ a{text-decoration:none; color:$fgColor;}
 .star{width:13px; height:13px; background-image:url("images/star.png"); background-position:center center; float: left; margin:3px;}
 .star-parent{padding:10px 32px; float:left;}
 .star-parent.pull-right{float:right;}
-.navList > a {display:inline-block; padding:17px 16px; position:relative; top:-2px; float:left;}
-.navList > a.active,.navList > a:hover{background-color:$fgColor; color:$navListBg; font-weight:bold;}
+.navList  a {display:inline-block; padding:17px 16px; position:relative; top:-17px; float:left;}
+.navList  a.active,.navList  a:hover{background-color:$fgColor; color:$navListBg; font-weight:bold;}
 .menuCommon{border-style:solid; border-width:$menuBorderWidth;}
 .menuLeft{@extend .menuCommon; border-color:transparent $borderColor $borderColor transparent;}
 .menuRight{@extend .menuCommon; border-color:transparent transparent $borderColor $borderColor;}
+.menu {float:left;}
+.menu li{list-style:none; float:left;}
 
 /**
 * css for container
@@ -77,13 +83,14 @@ a{text-decoration:none; color:$fgColor;}
 .content-top{text-align:center; padding:23px 0;}
 .seperate-img{width:157px; height:20px; background-image:url("images/ornament.png"); background-repeat:no-repeat; background-position:center center; display:inline-block;}
 
-.slide-panel-container,.slide-img{border:solid 1px rgb(207, 196, 196); box-shadow:0px 0px 1px white inset; min-height:100px; background:#edeae6 url('images/content_bg.png') repeat-x;}
+.commone-bg{background:$fgColor;}
+.slide-panel-container,.slide-img{border:solid 1px rgb(207, 196, 196); box-shadow:0px 0px 1px white inset; min-height:100px; @extend .commone-bg}
 .slide-panel-container .slide{width:50%; float:left; text-shadow:#f8f8f8 0px 1px 0px; text-align:center; padding-bottom:40px;}
 .slide >div{display:inline-block;}
 .listTopWrapperParent{text-align:center;}
 .listTopWrapper{display:inline-block; position: relative;
 top: -14px;}
-.slideTitleWrapper{@extend .navTitleCommon; padding:10px 91px;}
+.slideTitleWrapper{@extend .navTitleCommon; padding:10px 91px; color:$fgColor; font-weight:bold;}
 .listTopWrapper > div {float:left;}
 .slide-img{width:$slideImgWidth; height:200px; padding:3px;}
 .slide-img img{width:100%; height:100%;}
@@ -92,6 +99,25 @@ text-align: justify;
 margin-top: 20px;
 line-height: 1.5;}
 .read-more{padding:8px 15px; border:solid 1px black; box-shadow:0px 0px 2px yellow inset; text-shadow:#2c0000 0px -1px 0px; background-color:$navListBg; color:$fgColor; display:inline-block; margin-top:20px;}
+.content{color:$descriptionColor; padding:24px 20px;}
+
+/**
+* css style for menu
+**/
+.food-menu{@include column-count(2,80px);}
+.itemColor{color:$navListBg; text-shadow:$fgColor 1px 1px 0px;}
+.category{ font-size:22px; border-bottom:$fgColor; @extend .itemColor;}
+.menu-list{margin-bottom:40px;}
+.menu-list li{list-style:none; margin-top:10px;}   
+.dottline{width:100%; border-bottom:1px dotted $descriptionColor;position: relative; top: 11px;}
+.item-name,.price{@extend .commone-bg; padding:2px 5px; position:relative;}
+.contact-detail{margin-top:26px;}
+.address{width:300px;}
+.row{margin-top:10px;}
+.row input[type=text]{width:400px;}
+.row label{font-size:$smallerFontSize; padding:5px 7px;}
+.row textarea{width:100%; height:183px;}
+
 
 .copyright{@extend .siteBigDiv; color:$descriptionColor; margin-top:20px; padding-bottom:20px;}
 .copyright a{color:$descriptionColor;}

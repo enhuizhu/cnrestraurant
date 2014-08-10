@@ -5,3 +5,12 @@
    background: -ms-linear-gradient($direction,$startColor $percentage1,$stopColor $precentage2);
    background: -o-linear-gradient($direction,$startColor $percentage1,$stopColor $precentage2);
   }
+  
+@mixin column-count($count,$gap) {
+     -webkit-column-count: $count; /* Chrome, Safari, Opera */
+    -moz-column-count: $count; /* Firefox */
+    column-count: $count;
+	-webkit-column-gap: $gap; /* Chrome, Safari, Opera */
+    -moz-column-gap: $gap; /* Firefox */
+    column-gap: $gap;
+}
