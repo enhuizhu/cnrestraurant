@@ -1,0 +1,12 @@
+<VirtualHost *:80> 
+ DocumentRoot "/users/lilysun/documents/webSites/cnrestraurant" 
+ ServerName cnrestraurant.local 
+ ErrorLog "/private/var/log/apache2/cnrestraurant.local-error_log" 
+ CustomLog "/private/var/log/apache2/cnrestraurant.local-access_log" common 
+
+ <Directory "/users/lilysun/documents/webSites/cnrestraurant"> 
+    AllowOverride All 
+    Order allow,deny 
+    Allow from all 
+ </Directory> 
+ </VirtualHost> 
