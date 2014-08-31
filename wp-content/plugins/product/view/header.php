@@ -24,8 +24,18 @@
           </li>
       </ul>
     </li>
-    <li>
-       <a href="#">Product Management</a>
+    <li class="dropdown active">
+       <a class="ropdown-toggle" data-toggle="dropdown" href="">Product Management<span class="caret"></span></a>
+       <ul class="dropdown-menu" role="menu">
+          <li>
+            <a href="#addItem">Add New Item</a>
+          </li>
+          <li>
+            <a href="#listItems">List Items</a>
+          </li>
+       </ul>
+       
+
     </li>
 </ul>
 

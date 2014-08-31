@@ -15,9 +15,9 @@ $bigFont:23px;
 $regularFontSize:14px;
 $smallerFontSize:12px;
 $siteWidth:1022px;
-$headTitleTop:29px;
+$headTitleTop:31px;
 $arrowPaddingToParent:5px;
-$carouselHeight:396px;
+$carouselHeight:500px;
 $navWidth:958px;
 $navHeight:44px;
 $menuBorderWidth:7px;
@@ -46,8 +46,14 @@ ul{padding-left:0px;}
 * css for the head part
 */
 .head{width:100%; height:100px; background-color:$bgColor; position:relative;}
-.siteTitle{font-size:$bigFont; position:absolute; left:calc(50% - 450px); top:$headTitleTop;}
-.restraurantAward{left:calc(50% + 206px); top:$headTitleTop; position:absolute; font-style:italic;}
+.siteTitle{font-size:$smallerFontSize; position:absolute; left:calc(50% - 450px); top:15px; font-style: italic;}
+.bigTitle{
+color: rgb(167, 149, 55);
+font-size: 33px;
+text-shadow: 0px 0px 2px white;
+margin-bottom: 4px;
+}
+.restraurantAward{left:calc(50% + 206px); top:$headTitleTop; position:absolute; font-style:italic; font-size:$bigFont;}
 
 /**
 * css for carousel and navigation list
@@ -122,6 +128,9 @@ line-height: 1.5;}
 .copyright{@extend .siteBigDiv; color:$descriptionColor; margin-top:20px; padding-bottom:20px;}
 .copyright a{color:$descriptionColor;}
 
+.block-text{margin-bottom:10px;}
+.block-text .block-title{font-weight:bold; font-size:$regularFontSize;}
+.block-text .block-content{padding: 10px; line-height: 2;}
 
 
 

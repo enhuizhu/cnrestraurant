@@ -7,11 +7,12 @@
   <body>
      <div class="head">
 	      <div class="siteTitle">
-		       BEST CHINESE RESTRAURANT
+		       <div class="bigTitle">梨花園</div>
+		       LEE GARDEN CAFE & RESTRAURANT
 		  </div>
 		  
 		  <div class="restraurantAward">
-               Fatanstic Restraurant Ever!		  
+               Tel:01482 872832	  
 		  </div>
      </div>
 	 
@@ -19,11 +20,11 @@
 	  <div class="carouselParent">
 	     
 		 <div class="carouselContainer">
-		     <img src="<?php echo get_template_directory_uri()."/images/carousel/stoneMatrix.png"?>">
-			 <img src="<?php echo get_template_directory_uri()."/images/carousel/1.gif"?>">
-			 <img src="<?php echo get_template_directory_uri()."/images/carousel/2.gif"?>">
-			 <img src="<?php echo get_template_directory_uri()."/images/carousel/3.gif"?>">
-			 <img src="<?php echo get_template_directory_uri()."/images/carousel/4.gif"?>">
+		     <img src="<?php echo get_template_directory_uri()."/images/carousel/main.jpg"?>">
+			 <img src="<?php echo get_template_directory_uri()."/images/carousel/dish1.jpg"?>">
+			 <img src="<?php echo get_template_directory_uri()."/images/carousel/dish2.jpg"?>">
+			 <img src="<?php echo get_template_directory_uri()."/images/carousel/dish3.jpg"?>">
+			 <img src="<?php echo get_template_directory_uri()."/images/carousel/dish4.jpg"?>">
 			 <div class="arrow left"></div>
 			 <div class="arrow right"></div>
 		 </div>

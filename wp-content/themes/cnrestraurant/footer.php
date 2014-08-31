@@ -1,5 +1,5 @@
 	 <div class="copyright">
-	    Copyright &copy; 2014 The Restaurant - Made by <a href="http://www.olmarket.co.uk">Online Marketing Solution</a>
+	    Copyright &copy; 2014 LEE GARDEN - Made by <a href="http://www.olmarket.co.uk">Online Marketing Solution</a>
 	  </div>
 	  
 	  	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

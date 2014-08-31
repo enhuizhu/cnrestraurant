@@ -44,23 +44,31 @@ ul {
   position: relative; }
 
 .siteTitle {
-  font-size: 23px;
+  font-size: 12px;
   position: absolute;
   left: calc(50% - 450px);
-  top: 29px; }
+  top: 15px;
+  font-style: italic; }
+
+.bigTitle {
+  color: #a79537;
+  font-size: 33px;
+  text-shadow: 0px 0px 2px white;
+  margin-bottom: 4px; }
 
 .restraurantAward {
   left: calc(50% + 206px);
-  top: 29px;
+  top: 31px;
   position: absolute;
-  font-style: italic; }
+  font-style: italic;
+  font-size: 23px; }
 
 /**
 * css for carousel and navigation list
 **/
 .carouselParent {
   width: 100%;
-  height: 396px;
+  height: 500px;
   background-image: url("images/patern.png");
   background-color: rgba(0, 0, 0, 0.8);
   position: relative; }
@@ -306,3 +314,14 @@ ul {
 
 .copyright a {
   color: #615353; }
+
+.block-text {
+  margin-bottom: 10px; }
+
+.block-text .block-title {
+  font-weight: bold;
+  font-size: 14px; }
+
+.block-text .block-content {
+  padding: 10px;
+  line-height: 2; }
