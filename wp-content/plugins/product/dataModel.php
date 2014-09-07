@@ -6,7 +6,8 @@
 **/
 if(!function_exists("dbQuotes")){
   function dbQuotes($value){
-   return "'".mysql_real_escape_string($value)."'";
+   global $wpdb;
+   return "'".$wpdb->escape($value)."'";
   }
 }
 
@@ -57,12 +58,20 @@ class dataModel{
     /**
     * function to check if the given category already exist
     **/
-    public function isCategoryExist($categoryName){
+    public function isCategoryExist($categoryName,$id=null){
         $sql = "select count(*) as n from product_category where category_name=";
-        $sql.= dbQuotes($categoryName);
+        $sql.= $this->dbQuotes($categoryName);
+        if($id!=null){
+          $sql.=" and category_id!=".$this->dbQuotes($id);
+        }
         $result = $this->db->get_row($sql);
         return $result->n >0 ? true: false;
     }
+
+    public function dbQuotes($str){
+        return "'".$this->db->escape($str)."'";
+    }
+
 
     /**
     * function to add new category
@@ -72,12 +81,28 @@ class dataModel{
        * should check if the category already in the db
        **/
        if($this->isCategoryExist($categoryName)) return true;
-
-       $sql = "insert into product_category (category_name) values (";
-       $sql.= dbQuotes($categoryName);
+       
+       $defaultPos = $this->getNewPos();
+       
+       $sql = "insert into product_category (category_name,pos) values (";
+       $sql.= $this->dbQuotes($categoryName).",";
+       $sql.= $this->dbQuotes($defaultPos);
        $sql.=")";
        return $this->db->query($sql);
     }
+
+
+    /**
+    * function to get the higest id number
+    **/
+    public function getNewPos(){
+      $sql = "select max(category_id)+1 as maxId from product_category";
+      $result = $this->db->get_row($sql);
+      return $result->maxId;
+    }
+
+
+
 
     /**
     * function to get all the categories
@@ -93,7 +118,7 @@ class dataModel{
     **/
     public function deleteCategory($categoryId){
         $sql = "delete from product_category where category_id =";
-        $sql.= dbQuotes($categoryId);
+        $sql.= $this->dbQuotes($categoryId);
         $this->db->query($sql);
         $this->deleteProductUnderCategory($categoryId);
         return $this->getAllCategories();
@@ -103,25 +128,26 @@ class dataModel{
     * delete product under specific category
     **/
     public function deleteProductUnderCategory($cid){
-        $sql = "delete from products where category_id=".dbQuotes($cid);
+        $sql = "delete from products where category_id=".$this->dbQuotes($cid);
         return $this->db->query($sql);
     }
 
     /**
     * update category name 
     **/
-    public function updateCategoryName($cid,$cname){
+    public function updateCategoryName($cid,$cname,$pos){
          /**
          * should check if the new name already exist
          **/
-         if($this->isCategoryExist($cname)){
+         if($this->isCategoryExist($cname,$cid)){
             $this->error = "category already exist!";
             return false;
          }
          
          $sql = "update product_category set category_name=";
-         $sql.= dbQuotes($cname);
-         $sql.= " where category_id=".dbQuotes($cid);
+         $sql.= $this->dbQuotes($cname).",";
+         $sql.= "pos=".$this->dbQuotes($pos);
+         $sql.= " where category_id=".$this->dbQuotes($cid);
         
          if($this->db->query($sql)){
              return $this->getAllCategories();
@@ -156,10 +182,10 @@ class dataModel{
     **/
     public function isProductExist($productName,$pid=false){
         $sql = "select count(*) as n from products";
-        $sql .= " where product_name=".dbQuotes($productName);
+        $sql .= " where product_name=".$this->dbQuotes($productName);
         
         if($pid!=false){
-          $sql .= " and product_id != ".dbQuotes($pid);
+          $sql .= " and product_id != ".$this->dbQuotes($pid);
         }
 
         $result = $this->db->get_row($sql);
@@ -176,9 +202,9 @@ class dataModel{
         }
 
         $sql = "insert into products (product_name,product_price,category_id) values (";
-        $sql.= dbQuotes($name).",";
-        $sql.= dbQuotes($price).",";
-        $sql.= dbQuotes($cid).")";
+        $sql.= $this->dbQuotes($name).",";
+        $sql.= $this->dbQuotes($price).",";
+        $sql.= $this->dbQuotes($cid).")";
        
         if(!$this->db->query($sql)){
             $this->error="sql error!";
@@ -201,7 +227,7 @@ class dataModel{
        /**
        * should sort it by category id
        **/
-       $sql.=" order by b.category_id asc";
+       $sql.=" order by b.pos asc";
 
 
 
@@ -221,9 +247,9 @@ class dataModel{
         return false;
       }
 
-      $sql = "update products set product_name=".dbQuotes($productName);
-      $sql.= ", product_price=".dbQuotes($productPrice);
-      $sql.=" where product_id=".dbQuotes($productId);
+      $sql = "update products set product_name=".$this->dbQuotes($productName);
+      $sql.= ", product_price=".$this->dbQuotes($productPrice);
+      $sql.=" where product_id=".$this->dbQuotes($productId);
 
       if(!$this->db->query($sql)){
         $this->error="sql error!";
@@ -238,7 +264,7 @@ class dataModel{
     * function to delete the product
     **/
     public function deleteProduct($productId){
-       $sql = "delete from products where product_id=".dbQuotes($productId);      
+       $sql = "delete from products where product_id=".$this->dbQuotes($productId);      
        $this->db->query($sql);
        return $this->getItems();
     }

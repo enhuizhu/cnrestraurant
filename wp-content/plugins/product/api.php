@@ -6,6 +6,7 @@ add_action("wp_ajax_addCategory", "addCategory");
 add_action("wp_ajax_nopriv_addCategory", "addCategory");
 if(!function_exists("addCategory")){
 	   function addCategory(){
+	           //die("try to add new category");
 	           global $myModel;
 	           $categoryName = $_POST["categoryName"];
                if($myModel->addNewCategory($categoryName)){
@@ -55,7 +56,7 @@ add_action("wp_ajax_nopriv_updateCategoryName", "updateCategoryName");
 if(!function_exists("updateCategoryName")){
 	   function updateCategoryName(){
 	           global $myModel;
-	           $results = $myModel->updateCategoryName($_POST["categoryId"],$_POST["categoryName"]);
+	           $results = $myModel->updateCategoryName($_POST["categoryId"],$_POST["categoryName"],$_POST["pos"]);
 	           //var_dump($results);
                if($results==false){
 	           	 echo json_encode(array("error"=>true,"message"=>$myModel->error));

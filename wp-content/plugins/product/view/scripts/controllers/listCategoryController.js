@@ -26,8 +26,8 @@ foodMenu.controller("listCategoryController",function($scope,$http,$rootScope,ap
      });
    }
  
-   $scope.update=function(cid,cname){
-     var data="action=updateCategoryName&categoryId="+cid+"&categoryName="+cname;
+   $scope.update=function(cid,cname,pos){
+     var data="action=updateCategoryName&categoryId="+cid+"&categoryName="+cname+"&pos="+pos;
      //console.log("sending data is:",data);  
      //return false;
      api.call(data,function(data,status){

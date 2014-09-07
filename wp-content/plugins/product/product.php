@@ -18,9 +18,9 @@ $myModel= new dataModel();
 $myModel->createProductCategoryTable("product_catogory");
 $myModel->createProductsTable("createProductsTable");
 
-//$testresult=$myModel->isProductExist("test");
-//die(var_dump($testresult));
-
+/*$testresult=$myModel->getNewPos("test");
+die(var_dump($testresult));
+*/
 function clients_admin_action(){
        add_menu_page("Food Menu Management", "Food Menu Management", 1, "Food Menu Management", "product_admin");
 }

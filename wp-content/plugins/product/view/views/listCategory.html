@@ -6,6 +6,7 @@
            <tr> 
             <th>Cateogry Id</th>
             <th>Cateogry Name</th>
+            <th>Category Priority(Low number have higer priority)</th>
             <th>Delete</th>
             <th>Update</th>
            </tr>
@@ -14,11 +15,14 @@
            	 <td>
                  <input type="text" ng-model="category.category_name">
            	 </td>
+             <td>
+                 <input type="range" ng-model="category.pos" min="0" max="100">
+             </td>
            	 <td>
            	 	<span ng-click="delete(category.category_id)" class="btn btn-danger">Delete</span>
            	 </td>
              <td>
-             	<span ng-click="update(category.category_id,category.category_name)" class="btn btn-primary">
+             	<span ng-click="update(category.category_id,category.category_name,category.pos)" class="btn btn-primary">
              		Update
              	</span>
              </td>
