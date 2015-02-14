@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+   <head>
+      <title> drop down selecter</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+   </head>
+   <body ng-controller="dropDownCtrl" ng-app="testApp">
+   
+
+    <drop-down model="dropDownData"></drop-down>
+
+   <script type="text/javascript" src="augular.js"></script>
+   <script type="text/javascript">
+     angular.module("testApp",[]);
+     angular.module("testApp").controller("dropDownCtrl",function($scope){
+       $scope.dropDownData = [
+          {
+            filterName:"date",
+            items:[
+              "2014",
+              "2015"
+            ],
+            selected:false
+          },
+          {
+            filterName:"Agents",
+            items:[
+              "user1",
+              "user2"
+            ],
+            selected:false
+          },  
+
+       ];
+
+     });
+
+     //create drop down directive
+     angular.module("testApp").directive("dropDown",function(){
+        return {
+        	restrict:"AE",
+        	replace:"true",
+        	scope:{
+        		model:"=model"
+        	},
+        	templateUrl:"./views/dropDown.html",
+        	link:function(scope,element,attr){
+               //function to see all the items
+              scope.createNewList = function(filter){
+                   var content="<ul>";
+                   for(var k in filter.items){
+                      content+="<li>"+filter.items[k]+"</li>"
+                   }
+                   content+="</ul>";
+                   element.append(content);
+              };
+
+              scope.getSelector = function(){
+                   
+                   scope.selectedFilters = [];         console.log("the value of dropDown data is:",scope.model);
+                   for(var i=0;i<scope.model.length;i++){
+                      if (scope.model[i].selected) {
+                         scope.selectedFilters.push(scope.model[i]);
+                      };
+                   }
+              }
+        	}
+        }
+     })
+
+   </script>
+   </body>
+</html>

@@ -1,0 +1,20 @@
+<div class="dropDown">
+  <form ng-submit="getSelector()" id="filterSelector">
+   <ul>
+   	   <li ng-repeat="filter in model">
+           <input type="checkbox" name="{{filter.filterName}}" ng-model="filter.selected">{{filter.filterName}}
+       </li>
+   </ul>
+   <input type="submit" value="apply">
+   <div class="clear"></div>
+  </form>
+
+  <div ng-repeat="selectedFilter in selectedFilters">
+      <ul>
+         <li ng-repeat="item in selectedFilter.items">
+            <input type="checkbox" name="{{item}}">{{item}}
+         </li>
+      </ul>
+  </div>
+
+</div>
