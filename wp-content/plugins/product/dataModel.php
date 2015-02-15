@@ -227,7 +227,7 @@ class dataModel{
        /**
        * should sort it by category id
        **/
-       $sql.=" order by b.pos asc";
+      // $sql.=" order by b.pos asc";
 
 
 
