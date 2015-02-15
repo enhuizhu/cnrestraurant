@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+   <title>checkbox test</title>
+</head>
+<body>
+
+   <form>
+      <input type="checkbox" name="test" value="test1">test1
+      <input type="checkbox" name="test" value="test2">
+      test2
+
+      <input type="button" onClick="getTestValue()" value="get it">
+
+   </form>
+   
+    <script type="text/javascript">
+     
+     function getTestValue(){
+        var elements = document.querySelectorAll("input[name=test]:checked");
+        var value = [];
+        for(var i=0;i<elements.length;i++){
+           if(elements[i].checked){
+           	 value.push(elements[i].value);
+           }
+        }
+       
+        console.log("the value of test is:",value);
+
+     }
+
+
+   
+
+    </script>
+
+</body>
+</html>

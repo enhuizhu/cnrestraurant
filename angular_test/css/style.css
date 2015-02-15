@@ -1,0 +1,17 @@
+.dropDown {
+  width: 170px;
+  background: #d5dfa8;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 3px gray;
+}
+.dropDown ul {
+  list-style: none;
+  margin-left: -40px;
+}
+.dropDown input[type=submit] {
+  float: right;
+}
+.clear {
+  clear: both;
+}
